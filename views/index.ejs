@@ -1,0 +1,53 @@
+<%- include partials/header.ejs %>
+
+
+
+
+  <section id="header" class="py-5 bg-info text-light text-center">
+    <div class="container">
+      <h1> Migration Simulation </h1>
+      <h3 class="mb-0"> Welcome to our Database! </h3>
+    </div>
+  </section>
+  
+  
+  <section id="samples" class="py-5">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-10 mx-auto">
+          <ul class="list-group">
+            <% samples.forEach((sample) => { %>
+              <li class="list-group-item d-flex">
+              
+                <div>
+
+                  <h4> ID : <%= sample.ID %> </h4>
+                  <p> <b> Age </b>: <%= sample.age %> </p>
+                  <p> <b>Gender</b>: <%= sample.gender %> </p>
+                  <p> <b>Profession</b>: <%= sample.profession.major %> </p>
+                  <p> <b>District</b>: <%= sample.home_address.district%></p>
+                  <p> <b>Country</b>: <%= sample.foreign_address.country %> </p>
+                  <p> <b>Date Out</b>: <%= sample.date_out %> </p>
+                  <p> <b>Date Return</b>: <%= sample.date_return %> </p>
+                  <p> <b>Interest</b>: <%= sample.interest %> </p>
+                  <p> <b>Personal View </b>: <%= sample.personal_view %> </p>
+
+                </div>
+
+                <div class="ml-auto">
+                  <a href="/edit/<%= sample._id %>" class="btn btn-info btn-sm text-light edit-sample">Edit</a>
+                  <a data-id="<%= sample._id %>" href="/" class="btn btn-danger btn-sm text-light delete-sample">Delete</a>
+
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  
+
+<%- include partials/footer.ejs %>
